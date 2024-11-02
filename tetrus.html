@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="image/favicon.ico" rel="shortcut icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易俄罗斯方块</title>
+    <style>
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #fffdfd;
+        }
+
+        #game-wrapper {
+            position: relative; /* 新增的包裹容器，用于绝对定位的参照 */
+            width: 300px;
+            margin: auto;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 100%; /* 使用100%高度，稍后会调整canvas的实际显示区域 */
+            border: 1px solid #3967ff;
+            box-shadow: 2px 2px 4px rgb(241, 59, 94);
+            background-color: rgb(254, 240, 255);
+            opacity: 0.9;
+        }
+
+        #game-menu {
+            position: relative;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(181, 248, 11, 0.6);
+            padding:  25px 0;
+            box-sizing: border-box;
+        }
+
+        .menu-item {
+
+            text-align: center;
+        }
+
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #02f80b;
+            color: #f3f0f0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #04ea0e;
+        }
+    </style>
+</head>
+<body>
+<div id="game-wrapper">
+    <div id="game-container">
+        <canvas id="tetrisCanvas" width="300" height="510"></canvas>
+        <div id="game-menu">
+            <div class="menu-item">
+                <button id="pauseButton">暂停</button>
+            </div>
+            <div class="menu-item" id="scoreboardContainer">
+                <span id="scoreboard">得分: 0</span>
+            </div>
+            <div class="menu-item">
+                <button id="restartButton">从头再来</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/tetris.js"></script>
+<script>
+    document.getElementById('restartButton').addEventListener('click', () => {
+        location.reload();
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
